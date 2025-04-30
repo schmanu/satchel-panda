@@ -1,6 +1,9 @@
 pico-8 cartridge // http://www.pico-8.com
 version 42
 __lua__
+-- satchel panda
+-- by @schmanu
+
 -- variables
 
 -- flags
@@ -576,24 +579,24 @@ function init_level()
 	for x=0,15 do
 	  for y=0,15 do
 	    -- spawn player
-	    if fget(mget(x+off_x,y),7) do
+	    if fget(mget(x+off_x,y),7) then
 	      player.startx=x*8
 	      player.starty=y*8
 	      mset(x+off_x,y,0)
 	    end
 	    -- spawn target
-	    if fget(mget(x+off_x,y),6) do
+	    if fget(mget(x+off_x,y),6) then
 		    target.x=x*8
 		    target.y=y*8
 		    mset(x+off_x,y,0)
 	    end
 	    -- spawn brick walls
-	    if fget(mget(x+off_x,y),4) do
+	    if fget(mget(x+off_x,y),4) then
 		    add(bricks,{x=x*8,y=y*8,sp=57,time=crumble_spd,w=8,h=8})
 	    end
 	    
 	    -- spawn power ups
-	    if fget(mget(x+off_x,y),5) do
+	    if fget(mget(x+off_x,y),5) then
 		     mset(x+off_x,y,0)
 	      add(powerups, {x=x*8,y=y*8,w=8,h=8,active=true,stime=0})
 	    end
